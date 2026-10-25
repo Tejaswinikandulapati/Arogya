@@ -1,61 +1,95 @@
-AROGYA WORKING WEB APP
-======================
+Arogya – AI-Assisted Healthcare Web Application
 
-WHAT WORKS
-- Patient appointment form with validation and booking ID
-- Persistent appointment storage in data/appointments.json (survives server restart)
-- Doctor desk: refresh, status updates (Pending / Approved / Rejected / Completed / Cancelled)
-- Prevents booking the same doctor at the same date/time twice
-- CSV export for appointments
-- Rule-based symptom-to-specialty guidance with urgent warning keyword checks
-- Lab value comparison against the range the user enters
-- Google Maps hospital search
-- Floating assistant for app navigation and general safety guidance
-- Optional email notifications via SMTP
-- Optional WhatsApp notifications via Meta WhatsApp Cloud API and an approved template
+Arogya is a healthcare web application prototype designed to support patient appointment booking and help healthcare staff manage appointment requests through a simple web interface.
 
-RUN ON WINDOWS
-1. Install Node.js 18 or newer from https://nodejs.org/
-2. Extract this ZIP to a folder.
-3. Open that folder in Command Prompt / PowerShell.
-4. Run: npm install
-5. Copy .env.example to .env (optional; only needed for notifications).
-6. Run: npm start
-7. Open http://localhost:3000 in your browser.
+The project demonstrates practical web development, AI-assisted problem-solving, and prompt engineering using ChatGPT and Claude.
 
-RUN ON MAC / LINUX
-Open Terminal in the extracted folder and run:
-  npm install
-  cp .env.example .env
-  npm start
-Then open http://localhost:3000
+Features
 
-EMAIL SETUP (OPTIONAL)
-For Gmail, use an App Password (not your normal password). Enable 2-Step Verification in your Google account, create an App Password, and put values in .env:
-  SMTP_HOST=smtp.gmail.com
-  SMTP_PORT=465
-  SMTP_SECURE=true
-  SMTP_USER=your-email
-  SMTP_PASS=your-app-password
-  EMAIL_FROM=your-email
-The patient must provide an email address. Never paste passwords into chat or commit .env to a public repository.
+- Patient Appointment Booking: Patients can submit appointment requests through a form.
+- Form Validation: Validates appointment details before submission.
+- Booking ID: Generates an identifier for appointment tracking.
+- Persistent Storage: Stores appointment data in a JSON file.
+- Doctor Dashboard: Enables staff to review appointment requests and update their status.
+- Appointment Status Management: Supports Pending, Approved, and Rejected statuses.
+- Data Persistence: Appointment records are designed to remain available after the application restarts.
 
-WHATSAPP SETUP (OPTIONAL)
-Configure Meta WhatsApp Cloud API:
-  WHATSAPP_TOKEN=your-access-token
-  WHATSAPP_PHONE_NUMBER_ID=your-phone-number-id
-  WHATSAPP_TEMPLATE_NAME=your-approved-template-name
-  WHATSAPP_TEMPLATE_LANGUAGE=en_US
-The approved template must have five body parameters in this order:
-patient name, booking ID, doctor name, appointment date/time, status.
-The patient's phone must be in international format. Meta policies, opt-in requirements, template approval and messaging limits apply.
+Technology Stack
 
-IMPORTANT LIMITATIONS
-- This is a functional learning prototype, not production-ready clinical software.
-- The doctor desk has NO login or role-based access control. Do not expose it publicly.
-- The data file is suitable only for local demo use; it is not a production database.
-- No real AI model is connected. Symptom guidance is rule-based and not diagnostic.
-- No real clinic/doctor schedule is connected. Doctor names and specialties are sample data.
-- The report checker only compares a number with the range you enter; it does not determine whether a result is medically normal.
-- Before real patient use, add authentication, role authorization, encryption, secure database, audit logs, backups, consent/privacy controls, rate limiting, input validation, clinical review and applicable legal compliance.
-- Never rely on this app for emergency decisions.
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js and Express.js
+- Data Storage: JSON file-based storage
+- AI Tools: ChatGPT and Claude
+- Development Environment: Visual Studio Code
+- Version Control: Git and GitHub
+
+How AI Was Used
+
+ChatGPT and Claude were used to assist with project planning, prompt development, code generation, refinement, troubleshooting, and documentation.
+
+Prompts were refined iteratively to improve the structure, functionality, and clarity of the application.
+
+Getting Started
+
+Prerequisites
+
+- Node.js and npm installed
+- Git (optional, for version control)
+
+Installation
+
+1. Clone or download this repository.
+
+2. Open the project folder in Visual Studio Code.
+
+3. Open a terminal in the project directory.
+
+4. Install dependencies:
+   
+   npm install
+
+5. Configure environment variables using the provided ".env.example" file if required by the application.
+
+6. Start the application using the start command defined in "package.json".
+   
+   npm start
+
+7. Open the local URL displayed in the terminal.
+
+Note: The start command and environment configuration depend on the project's actual setup. Check "package.json" and "server.js" if any command needs adjustment.
+
+Project Structure
+
+Arogya-Working-Features-App/
+├── data/
+├── server.js
+├── package.json
+├── package-lock.json
+├── .env.example
+└── README.md
+
+Additional frontend files and folders may be present depending on the implementation.
+
+Important Notes
+
+- This is a prototype intended for demonstration and assessment purposes.
+- It is not a substitute for professional medical advice, diagnosis, or treatment.
+- The application should be security-tested before real-world deployment.
+- JSON file storage is suitable for a small demonstration but may require a database for production use.
+- Do not upload passwords, API keys, private patient information, or the actual ".env" file to GitHub.
+
+Future Improvements
+
+- Database integration
+- User authentication and role-based access
+- Improved patient and doctor dashboards
+- Secure deployment and automated testing
+- Additional accessibility and usability improvements
+
+Author
+
+Developed as a practical project for the AI Growth & Automation Associate – AI Skills & Prompt Engineering Assessment.
+
+License
+
+This project is intended for educational and assessment purposes.
