@@ -1,0 +1,9 @@
+{
+  "name": "arogya-working-app",
+  "version": "1.0.0",
+  "description": "Arogya patient care app with persistent appointments and optional email/WhatsApp notifications",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "dotenv": "^16.4.7", "express": "^4.21.2", "nodemailer": "^6.10.0" }
+}
